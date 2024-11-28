@@ -5,12 +5,12 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"time"
 
-	"github.com/noxworld-dev/xwis"
 	"github.com/spf13/cobra"
+
+	"github.com/opennox/xwis"
 )
 
 func init() {
@@ -22,7 +22,7 @@ func init() {
 	cmd.RunE = func(cmd *cobra.Command, args []string) error {
 		rctx := cmd.Context()
 
-		data, err := ioutil.ReadFile(*fConf)
+		data, err := os.ReadFile(*fConf)
 		if os.IsNotExist(err) {
 			cmd.SilenceUsage = true
 			g := xwis.GameInfo{
@@ -39,7 +39,7 @@ func init() {
 			if err != nil {
 				return err
 			}
-			err = ioutil.WriteFile(*fConf, data, 0644)
+			err = os.WriteFile(*fConf, data, 0644)
 			if err != nil {
 				return err
 			}

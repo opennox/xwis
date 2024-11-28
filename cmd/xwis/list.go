@@ -54,7 +54,7 @@ func init() {
 			fmt.Printf("\n%v\nTotal rooms: %d\n", time.Now().Format("2006-01-02 15:04:05"), cnt)
 			for _, r := range list {
 				if g := r.Game; g != nil {
-					fmt.Printf("\t%s\t%d/%d\n", g.Name, g.Players, g.MaxPlayers)
+					fmt.Printf("\t%s\t%d/%d, %s\n", g.Name, g.Players, g.MaxPlayers, g.Addr)
 				} else if *fChats {
 					fmt.Printf("\t%s\t%d\n", r.Name, r.Users)
 				}

@@ -4,8 +4,9 @@ import (
 	"context"
 	"os"
 
-	"github.com/noxworld-dev/xwis"
 	"github.com/spf13/cobra"
+
+	"github.com/opennox/xwis"
 )
 
 var (
